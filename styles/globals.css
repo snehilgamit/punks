@@ -2,26 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: Arcade;
+  src: url('../pages/fonts/ArcadeGamer.woff2');
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body{
+  background-color: rgb(248,255,0);
+  -webkit-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none;
 }
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.Arcade {
+  font-family: "Arcade", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
