@@ -6,14 +6,23 @@
   font-family: Arcade;
   src: url('../pages/fonts/ArcadeGamer.woff2');
 }
+@font-face {
+  font-family: Barlow;
+  src: url('../pages/fonts/66717c8773978729ad938613_BarlowCondensed-Bold.woff');
+}
 body{
   background-color: rgb(248,255,0);
-  -webkit-user-select: none; 
-  -ms-user-select: none; 
-  user-select: none;
+  -webkit-user-select: animate-svg-fill 0s cubic-bezier(0.47, 0, 0.745, 0.715) 2s both;; 
+  -ms-user-select: animate-svg-fill 0s cubic-bezier(0.47, 0, 0.745, 0.715) 2s both;; 
+  user-select: animate-svg-fill 0s cubic-bezier(0.47, 0, 0.745, 0.715) 2s both;;
 }
 .Arcade {
   font-family: "Arcade", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.Barlow {
+  font-family: "Barlow", system-ui;
   font-weight: 400;
   font-style: normal;
 }

@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { HiGift } from "react-icons/hi";
 import Airdrop from '@/components/Home/Airdrop'
 import Index from '@/components/Home/Index'
-import LeaderBoard from '@/components/Home/LeaderBoard'
+import LeaderBoard from '@/components/Home/More'
 import Refer from '@/components/Home/Refer'
 import "animate.css"
 const home = () => {

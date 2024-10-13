@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { HiGift } from "react-icons/hi";
 import Airdrop from '@/components/Home/Airdrop'
 import Index from '@/components/Home/Index'
-import LeaderBoard from '@/components/Home/LeaderBoard'
+import More from '@/components/Home/More'
 import Refer from '@/components/Home/Refer'
 import "animate.css"
 const home = () => {
@@ -18,7 +18,7 @@ const home = () => {
     const [showOnboarding, setShowOnboarding] = useState(false);
     const [currentTab, setCurrentTab] = useState({ current: 0, previous: 0 })
 
-    const components = [<Index />, <Refer />, <Airdrop />,<LeaderBoard />]
+    const components = [<Index />, <Refer />, <Airdrop />, <More />]
     const changeTab = (number) => {
         if (currentTab.current !== number) {
             setCurrentTab(prev => {
