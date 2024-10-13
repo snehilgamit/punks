@@ -33,23 +33,23 @@ const Tasks = () => {
     return (
         <div className='w-[85%] mt-5 pb-[35%]'>
             <p className='text-xl mb-3'>Tasks</p>
-            <Task title={'Follow on X'} reward={20} bottonTxt={'Complete'} />
-            <Task title={'Follow on X'} reward={20} bottonTxt={'Complete'} />
+            <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
+            <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
             {!opened ? <div className='flex items-center gap-0.5 ml-1 cursor-pointer' onClick={() => setOpened(prev => !prev)}>
                 Show more
                 <HiOutlineChevronDown className='mt-0.5' size={20} />
             </div> :
                 <div className='animate__animated animate__fadeIn'>
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Complete'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Complete'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Complete'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Complete'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Complete'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Complete'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Complete'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Complete'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Complete'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Complete'} />
+                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
+                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
+                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
+                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
+                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
+                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
+                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
+                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
+                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
+                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
                 </div>
             }
         </div>
@@ -57,24 +57,28 @@ const Tasks = () => {
 }
 
 
-const Task = ({ title, reward, bottonTxt }) => (
-    <div className='w-full border-2 border-black rounded-lg p-3.5 py-2.5 flex justify-between my-2'>
-        <div>
-            <div className='text-lg'>{title}</div>
-            <div className='text-[0.82rem] text-black/50 leading-[0.6rem] mb-1'>{reward} PUNKS</div>
-        </div>
-        <div className='flex justify-center items-center'>
-            <div className='px-4 py-2 bg-green-500/30 border border-black/50 rounded-xl cursor-pointer text-xs'>
-                {bottonTxt}
+const Task = ({ title, reward, bottonTxt }) => {
+    const [loading, setLoading] = useState(false)
+    const complete = () => {
+        setLoading(prev => !prev)
+    }
+    return (
+        <div className='border-black/80 border-2 bg-opacity-70 rounded-3xl p-4 w-full z-10 my-2'>
+            <div className='flex justify-between items-center'>
+                <div className='text-start mx-2'>
+                    <div className='font-bold '>{title}</div>
+                    <div className='text-[0.65rem]'>{reward} punks</div>
+                </div>
+                <div className='text-xs p-2.5 bg-black text-white rounded-3xl font-semibold cursor-pointer transition-all duration-200 border-purple-500/70 border w-fit px-5' onClick={complete} >{loading ? bottonTxt + '..' : bottonTxt}</div>
             </div>
         </div>
-    </div>
-)
+    )
+}
 
 
 const CodeGame = () => {
     const [code, setCode] = useState(new Array(5).fill(''));
-    const [border, setBorder] = useState('rgb(239 68 68 / 0.5) 2px solid')
+    const [border, setBorder] = useState('rgb(0 0 0 / 0.5) 2px solid')
     const handleCode = (e, index) => {
         const codee = code.join('')
         if (codee.length == 4) {
@@ -115,7 +119,7 @@ const CodeGame = () => {
             <div className='mb-2'>Punks code</div>
             <div className='flex gap-2 justify-center items-center w-[85%]'>
                 {code.map((digit, index) => (
-                    <div key={index} className='rounded-lg overflow-hidden Arcade'>
+                    <div key={index} className='rounded-lg overflow-hidden'>
                         <input
                             onChange={(e) => handleCode(e, index)}
                             maxLength={1}
