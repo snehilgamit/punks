@@ -71,12 +71,6 @@ const home = () => {
     return (
         <>{isLogined ?
             <div className='flex flex-col h-screen Arcade uppercase text-black selection:bg-none animate__animated animate__fadeIn overflow-hidden'>
-                <div className='absolute top-4 left-4'>
-                    <Image src={'/logo.svg'} width={50} height={50} alt='logo' />
-                </div>
-                <div className='absolute px-3.5 py-2 top-6 right-4 font-semibold border border-black flex justify-center items-center text-xs gap-0.5 rounded-full active:scale-110 transition-all duration-200' onClick={() => changeTab(3)}>
-                    <HiGift size={'23px'} />
-                </div>
                 {components[currentTab.current]}
                 {showOnboarding ? <ReferredBy first_name={user?.referredBy?.first_name} last_name={user?.referredBy?.last_name} username={user?.referredBy?.username} close={close_function} /> : ''}
                 <Menubar changeTab={changeTab} />
