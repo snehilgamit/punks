@@ -33,23 +33,15 @@ const Tasks = () => {
     return (
         <div className='w-[85%] mt-5 pb-[35%]'>
             <p className='text-xl mb-3'>Tasks</p>
-            <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
-            <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
+            <Task title={'Follow on X'} reward={20} bottonTxt={'Follow'} />
+            <Task title={'Join our Telegram Group'} reward={10} bottonTxt={'Join'} />
             {!opened ? <div className='flex items-center gap-0.5 ml-1 cursor-pointer' onClick={() => setOpened(prev => !prev)}>
                 Show more
                 <HiOutlineChevronDown className='mt-0.5' size={20} />
             </div> :
                 <div className='animate__animated animate__fadeIn'>
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
-                    <Task title={'Follow on X'} reward={20} bottonTxt={'Open'} />
+                    <Task title={'Subscribe on Telegram Channel'} reward={15} bottonTxt={'Open'} />
+                    <Task title={'Subscribe on YouTube'} reward={25} bottonTxt={'Subscribe'} />
                 </div>
             }
         </div>
@@ -63,7 +55,7 @@ const Task = ({ title, reward, bottonTxt }) => {
         setLoading(prev => !prev)
     }
     return (
-        <div className='border-black/80 border-2 bg-opacity-70 rounded-3xl p-4 w-full z-10 my-2'>
+        <div className='border-black/80 border-2 bg-opacity-70 rounded-3xl p-3.5 w-full z-10 my-2'>
             <div className='flex justify-between items-center'>
                 <div className='text-start mx-2'>
                     <div className='font-bold '>{title}</div>
