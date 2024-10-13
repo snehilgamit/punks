@@ -17,8 +17,8 @@ const home = () => {
     const [user, setUser] = useState({})
     const [showOnboarding, setShowOnboarding] = useState(false);
     const [currentTab, setCurrentTab] = useState({ current: 0, previous: 0 })
-    
-    const components = [<Index />, <Refer />, <LeaderBoard />, <Airdrop />]
+
+    const components = [<Index />, <Refer />, <Airdrop />,<LeaderBoard />]
     const changeTab = (number) => {
         if (currentTab.current !== number) {
             setCurrentTab(prev => {
@@ -44,7 +44,7 @@ const home = () => {
         }
     }
 
-    
+
 
     const checkSession = async () => {
         fetching.current = true
@@ -59,7 +59,7 @@ const home = () => {
             fetchUser(initData)
         }
     }
-    
+
     const close_function = () => {
         setShowOnboarding(false)
     }
@@ -70,16 +70,14 @@ const home = () => {
     // }, [])
     return (
         <>{isLogined ?
-            <div className='flex flex-col h-screen Arcade uppercase text-black/80 selection:bg-none animate__animated animate__fadeIn overflow-hidden'>
-                <div className='absolute top-4 left-4'>
-                    <Image src={'/logo.svg'} width={50} height={50} alt='logo' />
-                </div>
-                <div className='absolute px-3.5 py-2 top-6 right-4 font-semibold border border-black flex justify-center items-center text-xs gap-0.5 rounded-full active:scale-110 transition-all duration-200' onClick={() => changeTab(3)}>
-                    <HiGift size={'23px'} />
-                    Airdrop
-                </div>
+            <div className='flex flex-col h-screen Arcade uppercase text-black selection:bg-none animate__animated animate__fadeIn overflow-hidden'>
+                {/* <div className=' flex justify-between px-5 py-3.5 items-center'>
+                    <div className='top-4 left-4'>
+                        <Image src={'/logo.svg'} width={50} height={50} alt='logo' />
+                    </div>
+                    <HiGift style={{padding:'5px',border:'1px solid black',marginTop:'10px'}} size={'40px'} />
+                </div> */}
                 {components[currentTab.current]}
-                {/* {showOnboarding ? <ReferredBy first_name={user?.referredBy?.first_name} last_name={user?.referredBy?.last_name} username={user?.referredBy?.username} close={close_function} /> : ''} */}
                 <Menubar changeTab={changeTab} />
             </div>
             :

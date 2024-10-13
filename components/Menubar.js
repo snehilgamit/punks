@@ -1,28 +1,33 @@
-import React from 'react'
-import Image from 'next/image'
+import React, { useState } from 'react'
 import { LuUser } from "react-icons/lu";
-import { HiOutlineTrophy } from "react-icons/hi2";
-import { HiOutlineHome } from "react-icons/hi2";
+import { HiOutlineTrophy, HiTrophy, HiHome, HiGift } from "react-icons/hi2";
 
 const Menubar = ({ changeTab }) => {
+    const [activeTab, setActiveTab] = useState(0)
     return (
-        <div className='w-full absolute bottom-0 uppercase pb-5 px-8 text-[0.6rem] bg-[#f8ff00]'>
-            <div className='flex justify-around items-center gap-2 overflow-hidden font-bold border-2 border-black rounded-3xl px-4'>
-                <div className='w-[30%] flex items-center flex-col py-5 px-3 active:scale-110 transition-all duration-100 ease-in-out' onClick={() => changeTab(0)} >
-                    <div className='w-full h-[30px] flex justify-center items-center mb-0.5'>
-                        <HiOutlineHome size={'30px'} />
+        <div className='w-full absolute bottom-0 uppercase text-[0.55rem] bg-[#f8ff00] shadow-xl'>
+            <div className='flex justify-around items-center border-black border-t-2 py-4 px-3 pl-5 max-[320px]:px-2 font-semibold'>
+                <div className='flex items-center flex-col transition-all duration-500 ease-in-out gap-0.5' style={{ color: activeTab == 0 ? 'rgb(0 0 0 / 0.4)' : 'black' }} onClick={() => {changeTab(0);setActiveTab(0)}}>
+                    <div className='p-1.5 rounded-lg' style={{backgroundColor:activeTab ===0?'rgb(0 0 0 / 0.05)':'transparent'}}>
+                        <HiHome className='transition-all duration-500 ease-in-out' style={{ fill: activeTab == 0 ? 'rgb(0 0 0 / 0.6)' : 'black' }} size={'25px'} />
                     </div>
                     Home
                 </div>
-                <div data-value={1} className='w-[30%] flex items-center flex-col py-5 px-3 active:scale-110 transition-all duration-100 ease-in-out' onClick={() => changeTab(1)}>
-                    <div className='w-full h-[30px] flex justify-center items-center mb-0.5'>
-                        <LuUser size={'30px'} />
+                <div className='flex items-center flex-col transition-all duration-500 ease-in-out gap-0.5' style={{ color: activeTab == 1 ? 'rgb(0 0 0 / 0.4)' : 'black' }} onClick={() => {changeTab(1);setActiveTab(1)}}>
+                    <div className='p-1.5 rounded-lg' style={{backgroundColor:activeTab ===1?'rgb(0 0 0 / 0.05)':'transparent'}}>
+                        <LuUser className='transition-all duration-500 ease-in-out' style={{ fill: activeTab == 1 ? 'rgb(0 0 0 / 0.6)' : 'black' }}  size={'25px'} />
                     </div>
                     Refer
                 </div>
-                <div data-value={2} className='w-[34%] flex items-center flex-col py-5 px-3 active:scale-110 transition-all duration-100 ease-in-out' onClick={() => changeTab(2)}>
-                    <div className='w-full h-[30px] flex justify-center items-center mb-0.5'>
-                        <HiOutlineTrophy size={'30px'} />
+                <div className='flex items-center flex-col transition-all duration-500 ease-in-out gap-0.5' style={{ color: activeTab == 2 ? 'rgb(0 0 0 / 0.4)' : 'black' }} onClick={() => {changeTab(2);setActiveTab(2)}}>
+                    <div className='p-1.5 rounded-lg' style={{backgroundColor:activeTab ===2?'rgb(0 0 0 / 0.05)':'transparent'}}>
+                        <HiGift className='transition-all duration-500 ease-in-out' style={{ fill: activeTab == 2 ? 'rgb(0 0 0 / 0.6)' : 'black' }}  size={'25px'} />
+                    </div>
+                    Airdrop
+                </div>
+                <div className='flex items-center flex-col transition-all duration-500 ease-in-out -ml-4 gap-0.5' style={{ color: activeTab == 3 ? 'rgb(0 0 0 / 0.4)' : 'black' }}  onClick={()=>{changeTab(3);setActiveTab(3)}}>
+                    <div className='p-1.5 rounded-lg' style={{backgroundColor:activeTab ===3?'rgb(0 0 0 / 0.05)':'transparent'}}>
+                        <HiTrophy className='transition-all duration-500 ease-in-out' style={{ fill: activeTab == 3 ? 'rgb(0 0 0 / 0.6)' : 'black' }}  size={'25px'} />
                     </div>
                     Leaderboard
                 </div>
@@ -31,8 +36,7 @@ const Menubar = ({ changeTab }) => {
     )
 }
 
-export default Menubar
-
+export default Menubar;
 
 
 
