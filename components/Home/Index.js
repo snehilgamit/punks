@@ -71,6 +71,7 @@ const Task = ({ title, reward, bottonTxt }) => {
 const CodeGame = () => {
     const [code, setCode] = useState(new Array(5).fill(''));
     const [border, setBorder] = useState('rgb(0 0 0 / 0.5) 2px solid')
+    const [available, setAvailable] = useState(false)
     const handleCode = (e, index) => {
         const codee = code.join('')
         if (codee.length == 4) {
@@ -108,24 +109,30 @@ const CodeGame = () => {
 
     return (
         <div className='w-[85%] mt-5 flex justify-center items-center flex-col'>
-            <div className='mb-2'>Punks code</div>
-            <div className='flex gap-2 justify-center items-center w-[85%]'>
-                {code.map((digit, index) => (
-                    <div key={index} className='rounded-lg overflow-hidden'>
-                        <input
-                            onChange={(e) => handleCode(e, index)}
-                            maxLength={1}
-                            className='w-[45px] h-[45px] text-center rounded-lg text-black flex justify-center items-center'
-                            value={digit}
-                            style={{ border: border }}
-                            type="text"
-                            name={`code${index}`}
-                            id={`code${index}`}
-                            onKeyDown={(e) => onback(e, index)}
-                        />
+            {available ?
+                <>
+                    <div className='mb-2'>Punks code</div>
+                    <div className='flex gap-2 justify-center items-center w-[85%]'>
+                        {code.map((digit, index) => (
+                            <div key={index} className='rounded-lg overflow-hidden'>
+                                <input
+                                    onChange={(e) => handleCode(e, index)}
+                                    maxLength={1}
+                                    className='w-[45px] h-[45px] text-center rounded-lg text-black flex justify-center items-center'
+                                    value={digit}
+                                    style={{ border: border }}
+                                    type="text"
+                                    name={`code${index}`}
+                                    id={`code${index}`}
+                                    onKeyDown={(e) => onback(e, index)}
+                                />
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
+                </> : <>
+                        <div className='w-full flex justify-center py-3 bg-emerald-700 text-white rounded-xl'>Available in 20h</div>
+                </>
+            }
             <div className='mt-2 text-xs'>Earn Punks by entering punks code</div>
         </div>
     );
