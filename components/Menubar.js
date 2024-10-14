@@ -6,7 +6,7 @@ const Menubar = ({ changeTab }) => {
     const [activeTab, setActiveTab] = useState(0)
     return (
         <div className='w-full absolute bottom-0 uppercase text-[0.55rem] bg-[#f8ff00] shadow-xl'>
-            <div className='flex justify-around items-center border-black border-t-2 py-6 pt-4 px-3 pl-5 max-[320px]:px-2 font-semibold'>
+            <div className='flex justify-around items-center border-black border-t-2 py-6 pt-4 px-3 pl-5 max-[320px]:px-2 font-semibold border-b-0 border-x-0'>
                 <div className='flex items-center flex-col transition-all duration-500 ease-in-out gap-0.5 cursor-pointer' style={{ color: activeTab == 0 ? 'rgb(0 0 0 / 0.4)' : 'black' }} onClick={() => {changeTab(0);setActiveTab(0)}}>
                     <div className='p-1.5 rounded-lg' style={{backgroundColor:activeTab ===0?'rgb(0 0 0 / 0.05)':'transparent'}}>
                         <HiHome className='transition-all duration-500 ease-in-out' style={{ fill: activeTab == 0 ? 'rgb(0 0 0 / 0.6)' : 'black' }} size={'25px'} />
@@ -17,7 +17,7 @@ const Menubar = ({ changeTab }) => {
                     <div className='p-1.5 rounded-lg' style={{backgroundColor:activeTab ===1?'rgb(0 0 0 / 0.05)':'transparent'}}>
                         <LuUser className='transition-all duration-500 ease-in-out' style={{ fill: activeTab == 1 ? 'rgb(0 0 0 / 0.6)' : 'black' }}  size={'25px'} />
                     </div>
-                    Refer
+                    Friends
                 </div>
                 <div className='flex items-center flex-col transition-all duration-500 ease-in-out gap-0.5 cursor-pointer' style={{ color: activeTab == 2 ? 'rgb(0 0 0 / 0.4)' : 'black' }} onClick={() => {changeTab(2);setActiveTab(2)}}>
                     <div className='p-1.5 rounded-lg' style={{backgroundColor:activeTab ===2?'rgb(0 0 0 / 0.05)':'transparent'}}>
