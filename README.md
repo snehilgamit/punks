@@ -70,7 +70,9 @@
 ```
 punks/
 ├── components/         # Reusable UI components
-├── lib/                # Utility functions (e.g., db connection)
+├── helper/             # Helper
+├── models/             # Mongoose models
+├── utils/              # Utility functions (e.g., db connection)
 ├── pages/              # Next.js routes and API
 ├── public/             # Static files
 ├── styles/             # CSS/SCSS files
